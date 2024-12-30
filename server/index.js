@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "*", // Allow all domains for testing
+    origin: "https://videochaat.netlify.app/", // Allow all domains for testing
     methods: ["GET", "POST"]
   }
 });
