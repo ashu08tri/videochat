@@ -7,12 +7,15 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "https://videochaat.netlify.app/", // Allow all domains for testing
+    origin: "https://videochaat.netlify.app", // Allow all domains for testing
     methods: ["GET", "POST"]
   }
 });
 
-app.use(cors());
+app.use(cors({
+  origin: "https://videochaat.netlify.app" // Remove trailing slash
+}));
+
 
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
